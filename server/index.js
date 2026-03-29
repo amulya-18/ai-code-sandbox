@@ -10,12 +10,12 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: 'https://ai-code-sandbox.vercel.app',
     methods: ['GET', 'POST']
   }
 });
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://ai-code-sandbox.vercel.app' }));
 app.use(express.json());
 
 const aiRoutes = require('./routes/ai');
