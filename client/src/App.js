@@ -28,7 +28,7 @@ const [isError, setIsError] = useState(false);
 
   const loadSnippets = async () => {
     try {
-      const res = await axios.get('https://ai-code-sandbox.onrender.com/api/snippets/all');
+      const res = await axios.get('https://ai-code-sandbox-1.onrender.com/api/snippets/all');
       setSnippets(res.data.snippets);
     } catch (err) {
       console.log('Error loading snippets:', err);
@@ -38,7 +38,7 @@ const [isError, setIsError] = useState(false);
   const saveSnippet = async () => {
     if (!title) return alert('Please enter a title!');
     try {
-      await axios.post('https://ai-code-sandbox.onrender.com/api/snippets/save', { title, code, language });
+      await axios.post('https://ai-code-sandbox-1.onrender.com/api/snippets/save', { title, code, language });
       alert('Snippet saved!');
       setTitle('');
       loadSnippets();
@@ -49,7 +49,7 @@ const [isError, setIsError] = useState(false);
 
   const deleteSnippet = async (id) => {
     try {
-      await axios.delete(`https://ai-code-sandbox.onrender.com/api/snippets/delete/${id}`);
+      await axios.delete(`https://ai-code-sandbox-1.onrender.com/api/snippets/delete/${id}`);
       loadSnippets();
     } catch (err) {
       alert('Error deleting snippet');
@@ -61,7 +61,7 @@ const [isError, setIsError] = useState(false);
     setOutput('Running...');
     setIsError(false);
     try {
-      const res = await axios.post('https://ai-code-sandbox.onrender.com/api/code/run', { code, language });
+      const res = await axios.post('https://ai-code-sandbox-1.onrender.com/api/code/run', { code, language });
       setOutput(res.data.output);
       setIsError(res.data.isError);
       console.log('isError value:', res.data.isError);
