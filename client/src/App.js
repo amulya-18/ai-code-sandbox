@@ -77,7 +77,7 @@ const [isError, setIsError] = useState(false);
     setAiResponse('Thinking...');
     try {
       const fullPrompt = `Here is my code:\n\`\`\`${language}\n${code}\n\`\`\`\n\n${prompt}`;
-      const res = await axios.post('https://ai-code-sandbox.onrender.com/api/ai/chat', { prompt: fullPrompt });
+      const res = await axios.post('https://ai-code-sandbox-1.onrender.com/api/ai/chat', { prompt: fullPrompt });
       setAiResponse(res.data.response);
     } catch (err) {
       setAiResponse('Error: ' + err.message);
@@ -87,7 +87,7 @@ const [isError, setIsError] = useState(false);
 
   const login = async () => {
     try {
-      const res = await axios.post('https://ai-code-sandbox.onrender.com/api/auth/login', {
+      const res = await axios.post('https://ai-code-sandbox-1.onrender.com/api/auth/login', {
         email,
         password: authPassword
       });
@@ -101,7 +101,7 @@ const [isError, setIsError] = useState(false);
 
   const register = async () => {
     try {
-      const res = await axios.post('https://ai-code-sandbox.onrender.com/api/auth/register', {
+      const res = await axios.post('https://ai-code-sandbox-1.onrender.com/api/auth/register', {
         username: authUsername,
         email,
         password: authPassword
@@ -124,7 +124,7 @@ const [isError, setIsError] = useState(false);
     setLoading(true);
     setAiResponse('Fixing your code...');
     try {
-      const res = await axios.post('https://ai-code-sandbox.onrender.com/api/ai/fix', {
+      const res = await axios.post('https://ai-code-sandbox-1.onrender.com/api/ai/fix', {
         code,
         language,
         error: output
